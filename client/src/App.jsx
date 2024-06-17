@@ -30,28 +30,29 @@ export default function App() {
       setContent("");
       setTodos([...todos, newTodo]);
     }
-  }
+  };
 
   return (
     <main className="container">
-      <h1 className="title">Awesome Todos</h1>
+      <h1 className="title">Todo APP</h1>
       <form className="form" onSubmit={createNewTodo}>
-        <input 
-        type="text"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Enter a new todo..."
-        className="form__input"
-        required 
+        <input
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="Enter a new todo..."
+          className="form__input"
+          required
         />
-        <button className="form__button" type="submit">Create Todo</button>
+        <button className="form__button" type="submit">
+          Create Todo
+        </button>
       </form>
       <div className="todos">
-        {(todos.length > 0) &&
+        {todos.length > 0 &&
           todos.map((todo) => (
-            <Todo key={todo._id} todo={todo} setTodos={setTodos}   />
-          ))
-        }
+            <Todo key={todo._id} todo={todo} setTodos={setTodos} />
+          ))}
       </div>
     </main>
   );
